@@ -5,7 +5,7 @@
 <div class="card mb-3">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src="{{ asset('/img/'.$viewData['product']->getImage()) }}" class="img-fluid rounded-set">
+            <img src="{{ asset('/storage/'.$viewData['product']->getImage()) }}" class="img-fluid rounded-set">
         </div>
         <div class="col-md-8">
             <div class="card-body">
