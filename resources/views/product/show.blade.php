@@ -12,8 +12,23 @@
                 <h5 class="card-title">
                     {{strtoupper($viewData['product']->getName())}}(${{$viewData['product']->getPrice() }})
                 </h5>
-                <p class="card-text">{{$viewData['product']->getDescription()}}</p>
-                <p class="card-text"><small class="text-muted">Add to Card</small></p>
+                <p class="card-text">{{ $viewData['product']->getDescription() }}</p>
+                <p class="card-text">
+                    <form action="{{ route('cart.add',['id' => $viewData['product']->getId()]) }}" method="post">
+                        <div class="row">
+                            @csrf
+                            <div class="col-auto">
+                                <div class="input-group col-auto">
+                                    <div class="input-group-text">Quantity</div>
+                                    <input type="number" min="1" max="10" name="quantity" value="1" class="form-control quantity-input">
+                                </div>
+                                <div class="col-auto mt-2">
+                                    <button type="submit" class="btn bg-primary text-white">Add to Cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </p>
             </div>
         </div>
     </div>
